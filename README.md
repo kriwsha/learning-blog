@@ -3,9 +3,9 @@
 ~~[Здесь версия на английском](https://example.com/)~~
 
 ### Изучение Java
-* [Конспект "Как работает JVM"](JVM_Working.md)
+* [Конспект "Как работает JVM"](Java/JVM_Working.md)
 * ~~[Немного о методах класса Object]()~~
-* ~~[Реализация HashMap]()~~
+* [Реализация HashMap](Java/HashMap.md)
 
 ### Паттерны проектирования
 * ~~[Singleton]()~~
