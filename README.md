@@ -6,6 +6,7 @@
 * [Конспект "Как работает JVM"](Java/JVM_Working.md)
 * ~~[Немного о методах класса Object]()~~
 * [Реализация HashMap](Java/HashMap.md)
+* [Примеры и краткое описание Stream API](Java/Stream_API.md)
 
 ### Паттерны проектирования
 * ~~[Singleton]()~~
