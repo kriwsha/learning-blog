@@ -76,3 +76,42 @@ Optional<String> largest = words.parallelStream()
 boolean bool = words.parallelStream().anyMatch(s -> s.startsWith("Q"));
         // проверяет, есть ли совпадения с условием
 ```
+
+## 6. Способы использования groupingBy
+```
+// Группировка списка рабочих по должности (деление на саписки)
+Map<String, List<Worker>> map = workers.stream()
+        .collect(Colletors.groupingBy(Worker::getPosition));
+
+// Группировка списка рабочих по должности (деление на множества)
+Map<String, Set<Worker>> map = workers.stream()
+        .collect(Colletors.groupingBy(Worker::getPosition, 
+                Collectors.toSet()));
+
+// Подсчет количества рабочих, занимающих конкретные должности
+Map<String, Long> map = workers.stream()
+        .collect(Collectors.groupingBy(Worker::getPosition,
+                Collectors.counting()));
+
+// Группировка списка рабочих по их должности (интересуют только имена)
+Map<String, Set<String>> map = workers.stream()
+        .collect(Collectors.groupingBy(Worker::getPosition,
+                Collectors.mapping(Worker::getName,
+                        COllectors.toSet())));
+
+// Расчет средней з/п для данной должности
+Map<String, Double> map = workers.stream()
+        .collect(Collectors.groupingBy(Worker::getPosition,
+                Collectors.abaragingInt(Worker::getSalary)));
+
+// Группировка по должности, имена одной строкой
+Map<String, String> map = workers.stream()
+        .collect(Collectors.groupingBy(Worker::getPosition,
+                Collectores.mapping(Worker::getName,
+                    Collectors.joining(", ", "{", "}"))));
+
+// Группировка списка по должности и возрасту
+Map<String, Map<Integer, List<Worker>>> collect = workers.stream()
+        .collect(Collectors.groupingBy(Worker::getPosition,
+                Collectors.groupingBy(Worker::getAge)));
+```
